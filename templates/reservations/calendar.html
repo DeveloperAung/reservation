@@ -9,11 +9,30 @@
             max-width: 1100px;
             margin: 40px auto;
         }
+        /* Optional: Add legend styling */
+        .legend {
+            margin: 20px auto;
+            text-align: center;
+        }
+        .legend span {
+            margin: 0 10px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            color: white;
+        }
     </style>
 </head>
 <body>
     <a href="{% url 'create_reservation' %}">Create Reservation</a>
     <div id='calendar'></div>
+
+    <!-- Optional: Add a legend -->
+    <div class="legend">
+        <span style="background-color: #3788d8">Work</span>
+        <span style="background-color: #00cc00">Personal</span>
+        <span style="background-color: #ff9900">Meeting</span>
+        <span style="background-color: #808080">Other</span>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -27,7 +46,14 @@
                 },
                 events: '/events/',
                 eventClick: function(info) {
-                    alert('Event: ' + info.event.title + '\nDescription: ' + info.event.extendedProps.description);
+                    alert('Event: ' + info.event.title +
+                          '\nDescription: ' + info.event.extendedProps.description +
+                          '\nCategory: ' + info.event.extendedProps.category);
+                },
+                // Ensure colors are applied
+                eventDidMount: function(info) {
+                    info.el.style.backgroundColor = info.event.backgroundColor;
+                    info.el.style.borderColor = info.event.borderColor;
                 }
             });
             calendar.render();
