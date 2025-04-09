@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Create Reservation</title>
+    <title>{% if edit %}Edit{% else %}Create{% endif %} Reservation</title>
 </head>
 <body>
-    <h2>Create Reservation</h2>
+    <h2>{% if edit %}Edit{% else %}Create{% endif %} Reservation</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

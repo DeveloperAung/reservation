@@ -1,0 +1,36 @@
+#calendar {
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+.legend {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.legend span {
+    margin: 0 10px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    color: white;
+}
+
+.filters {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.filters label {
+    margin: 0 10px;
+}
+
+.fc-event {
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 2px 5px;
+}
+
+.fc-event.work { background-color: #3788d8; }
+.fc-event.personal { background-color: #00cc00; }
+.fc-event.meeting { background-color: #ff9900; }
+.fc-event.other { background-color: #808080; }
